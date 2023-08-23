@@ -13,7 +13,8 @@
     </small><br/>
     <hr>
     <br/>
-    {{ post.body }}
+    {{ post.body|safe }}
+{#    safe: if content has html code    #}
 
     <br/>
     <br/>
