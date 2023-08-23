@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from theblog.models import Post
 from .forms import PostForm, EditForm
 
@@ -12,6 +13,9 @@ from .forms import PostForm, EditForm
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
+    ordering = ['-id']
+#     Ordering by date
+
 
 
 class ArticleDetailView(DetailView):
@@ -37,3 +41,9 @@ class UpdatePostView(UpdateView):
     # fields = '__all__'
     # fields = ('title', 'title_tag', 'body')
     template_name = 'update_post.html'
+
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'delete_post.html'
+    success_url = reverse_lazy('home')
