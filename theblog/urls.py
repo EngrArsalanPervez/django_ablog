@@ -1,6 +1,6 @@
 from django.urls import path
 # from . import views
-from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, CategoryListView
+from .views import HomeView, ArticleDetailView, AddPostView, UpdatePostView, DeletePostView, AddCategoryView, CategoryView, CategoryListView, LikeView
 
 urlpatterns = [
    # path('', views.home, name="home"),
@@ -13,4 +13,5 @@ urlpatterns = [
    # Functional View
    path('category/<str:cats>/', CategoryView, name="category"),
    path('category-list/', CategoryListView, name="category-list"),
+   path('like/<int:pk>', LikeView, name='like_post'),
 ]
