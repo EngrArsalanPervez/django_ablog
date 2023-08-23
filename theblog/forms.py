@@ -28,10 +28,17 @@ class PostForm(forms.ModelForm):
             {
                 'class': 'form-control'
             }),
-            'author': forms.Select(attrs=
+            'author': forms.TextInput(attrs=
             {
-                'class': 'form-control'
+                'class': 'form-control',
+                'value': '',
+                'id': 'elder',
+                'type': 'hidden'
             }),
+            # 'author': forms.Select(attrs=
+            # {
+            #     'class': 'form-control'
+            # }),
             # Hardcoded
             # 'category': forms.Select(choices=choices, attrs=
             # Dynamic
